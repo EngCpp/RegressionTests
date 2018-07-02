@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.engcpp;
 
 import java.util.Collections;
@@ -20,13 +15,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- *
  * @author engcpp
  */
 public class SeleniumTest {
     protected WebDriver selenium; 
-    private static final long TME_SLEEP_IN_MILLI_SECS = 2000;
-    private static final long TME_OUT_IN_SECS = 30;
+    private static final long TME_SLEEP_IN_MILLI_SECS = 100;
+    private static final long TME_OUT_IN_SECS = 100;
     
     public SeleniumTest(WebDriver driver){
         this.selenium = driver;

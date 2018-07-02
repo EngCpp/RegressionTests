@@ -1,38 +1,40 @@
 package com.engcpp;
 
-import com.engcpp.utils.Constants;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.engcpp.utils.Constants;
+import com.engcpp.utils.DriverFactory;
 
 /**
  *
  * @author engcpp
+ * @Change by: Kashifi - Converted to the TestNG class to add it in the
+ * RegressionTest Suite
  */
 public class LoginTest {
+
     private Login loginPage;
     private WebDriver driver;
-    
-    @Before
+
+    @BeforeMethod
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = DriverFactory.newChromeInstance();
         loginPage = new Login(Constants.IQC_URL, driver);
     }
-    
-    @After
+
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }
-    
-    @Test
-    public void testLogin(){
-      loginPage = loginPage.withUsername(Constants.USERNAME)
-        .withPassword(Constants.PASSWORD)
-        .login();                 
 
-      Assert.assertTrue(loginPage.isLoggedIn());
-    }    
+    @Test(enabled = true)
+    public void testLogin() {
+        loginPage = loginPage.withUsername(Constants.USERNAME).withPassword(Constants.PASSWORD).login();
+
+        AssertJUnit.assertTrue(loginPage.isLoggedIn());
+    }
 }

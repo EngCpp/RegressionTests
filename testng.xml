@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="IQConnect SmokeTestSet">
+
+  <parameter name="pdfngreport-properties" value="C:\Users\kxi17\git\IQCRegressionTests\pdfngreport.properties" />
+
+  <listeners>
+    <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
+  </listeners>
+   
+   <test thread-count="5" name="Login_LogOut">
+    <classes>
+      <class name="com.engcpp.LoginTest"/>
+    </classes>
+	</test> <!-- Login_LogOut -->
+		
+	<test thread-count="5" name="iVAL_Property">
+    <classes>
+      <class name="com.engcpp.property.IVALReportsTest"/>
+    </classes>
+  </test> <!-- iVAL_Property --> 
+    
+    <test thread-count="5" name="Consumer_Reports">
+    <classes>
+      <class name="com.engcpp.individual.ScoreplusReportTest"/>
+    </classes>
+  </test> <!-- Consumer_Report -->  
+    
+  <test thread-count="5" name="StandardCommercialReport">
+    <classes>
+      <class name="com.kashifi.commercial.StandardBusinessReportTest"/>
+      </classes>
+  </test> <!-- StandardCommercialReport -->
+  
+  <test thread-count="5" name="AdvancedCommercialReports">
+      <classes>
+      <class name="com.kashifi.commercial.AdvancedBusinessReportTest"/>
+      </classes>
+  </test> <!-- AdvancedCommercialReports -->  
+		
+ </suite> <!-- SmokeTestSet -->
